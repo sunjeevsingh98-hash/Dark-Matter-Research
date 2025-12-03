@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inverse Mass Law for Dark Matter – Sanjeev Kumar Singh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Inverse Mass Law for Dark Matter: A Novel Geometric Alternative to Particle Candidates by Sanjeev Kumar Singh." />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1020;
+      --card: #141829;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.15);
+      --text: #f5f7ff;
+      --muted: #a0a3c2;
+      --border: #272b3f;
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-xl: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a1f3d 0, #050814 55%, #020308 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 18px 64px;
+    }
+
+    header {
+      padding: 20px 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 20%, #4fd1c5, #2b6cb0);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #020308;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .brand-text span:last-child {
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--text);
+      opacity: 0.9;
+    }
+
+    .tagline-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(160, 163, 194, 0.4);
+      padding: 6px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(3, 7, 18, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tagline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(79, 209, 197, 0.8);
+    }
+
+    .hero {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .hero-main {
+      background: linear-gradient(135deg, rgba(20, 24, 41, 0.97), rgba(11, 20, 52, 0.98));
+      border-radius: var(--radius-xl);
+      padding: 24px 22px 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(79, 209, 197, 0.12), transparent 60%),
+        radial-gradient(circle at 100% 10%, rgba(129, 140, 248, 0.18), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-main-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 6px 0 10px;
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #f9fafb, #e5e7eb);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .doi-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(79, 209, 197, 0.4);
+      font-size: 12px;
+      margin-bottom: 14px;
+      backdrop-filter: blur(8px);
+    }
+
+    .doi-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .doi-value {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      margin-top: 4px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4fd1c5, #2b6cb0);
+      color: #020617;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: rgba(148, 163, 184, 0.9);
+      text-decoration: none;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11px;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-side {
+      background: radial-gradient(circle at 0 0, rgba(79, 209, 197, 0.2), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.2), transparent 55%);
+      border-radius: var(--radius-xl);
+      padding: 18px 16px 20px;
+      border: 1px solid var(--border);
+      background-color: rgba(10, 12, 32, 0.95);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-side h2 {
+      font-size: 14px;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .hero-side p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    .key-points {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+      font-size: 12px;
+    }
+
+    .key-points li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .key-points span.bullet {
+      margin-top: 3px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section {
+      margin-top: 30px;
+      background: rgba(7, 10, 29, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 18px 18px 20px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+    }
+
+    .section-heading {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .section h3 {
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .section p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 4px 0 8px;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .two-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    code, .math-inline {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+    }
+
+    .math-block {
+      margin: 10px 0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: radial-gradient(circle at top, rgba(79, 209, 197, 0.05), transparent 60%);
+      border: 1px solid rgba(30, 64, 175, 0.7);
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      color: #e5e7eb;
+      overflow-x: auto;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">S</div>
+        <div class="brand-text">
+          <span>RESEARCH NOTE</span>
+          <span>Dark Matter & Space-Time Geometry</span>
+        </div>
+      </div>
+      <div class="tagline-chip">
+        <span class="tagline-dot"></span>
+        <span>Independent Theoretical Physics | 2025</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-main">
+          <div class="hero-main-inner">
+            <div class="doi-badge">
+              <span class="doi-label">DOI</span>
+              <span class="doi-value">10.5281/zenodo.17797752</span>
+            </div>
+            <h1>
+              <span class="highlight">Inverse Mass Law for Dark Matter</span><br />
+              A Novel Geometric Alternative to Particle Candidates
+            </h1>
+            <p class="hero-subtitle">
+              Proposed by <strong>Sanjeev Kumar Singh</strong>, this framework treats mass as an emergent
+              response of space-time geometry and vacuum energy, rather than as an intrinsic particle property.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="btn-primary"
+                href="https://doi.org/10.5281/zenodo.17797752"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📄 View Preprint on Zenodo
+              </a>
+              <a
+                class="btn-ghost"
+                href="mailto:sunjeevsingh98@gmail.com?subject=Feedback%20on%20Inverse%20Mass%20Law%20preprint"
+              >
+                ✉️ Contact the Author
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span><span class="pill-dot"></span> Version 1.0 · Published Dec 3, 2025</span>
+              <span><span class="pill-dot"></span> Domain: Dark Matter · Cosmology · Gravity</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div>
+            <h2>At a glance</h2>
+            <p>
+              The Inverse Mass Law proposes that effective gravitational mass
+              scales inversely with local vacuum energy density and geometric
+              deformation of space-time.
+            </p>
+            <ul class="key-points">
+              <li>
+                <span class="bullet"></span>
+                <span>Explains dark matter effects without new particle species.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>Links rotation curves, lensing and cosmic expansion through geometry.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>Provides a testable geometric alternative to standard ΛCDM dark matter.</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Abstract</h2>
+        <p>
+          This preprint introduces the <strong>Inverse Mass Law</strong> as a new theoretical framework connecting
+          apparent mass, vacuum energy density and space-time curvature. Instead of assuming undiscovered
+          dark matter particles, the model treats gravitational mass as an emergent quantity produced by
+          geometric variations in the vacuum.
+        </p>
+        <p>
+          A reciprocal relationship between effective mass and vacuum energy distribution is explored, with
+          consequences for galactic rotation curves, gravitational lensing, cosmological expansion and local
+          mass anomalies. The work aims to provide a compact geometric alternative to particle dark matter,
+          and invites critical review, refinement and observational tests.
+        </p>
+      </section>
+
+      <section class="section two-cols">
+        <div>
+          <h2 class="section-heading">Core Idea</h2>
+          <h3>What is the Inverse Mass Law?</h3>
+          <p>
+            In standard cosmology, dark matter is typically modeled as an invisible particle component.
+            The Inverse Mass Law instead proposes that what we interpret as additional mass can be encoded
+            in how vacuum energy and geometry are distributed.
+          </p>
+          <p>
+            Let <span class="math-inline">ρ<sub>v</sub></span> denote vacuum energy density and
+            <span class="math-inline">m<sub>eff</sub></span> the effective gravitational mass inferred from dynamics.
+            The core postulate is that
+          </p>
+          <div class="math-block">
+            m<sub>eff</sub> ∝ 1 / ρ<sub>v</sub><br /><br />
+            ⟹ &nbsp; m<sub>eff</sub> = k / ρ<sub>v</sub> &nbsp; ,<br />
+            where k encodes geometric and scale-dependent factors.
+          </div>
+          <p>
+            Regions with lower effective vacuum energy density behave as if they contain more mass, without
+            requiring additional unseen particles.
+          </p>
+        </div>
+        <div>
+          <h2 class="section-heading">Implications</h2>
+          <h3>Where can this be tested?</h3>
+          <p>Within the preprint, several qualitative and semi-quantitative implications are outlined:</p>
+          <ul class="key-points">
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Galactic rotation curves</strong> can be linked to large-scale variations in
+                vacuum energy and curvature, smoothing the need for halo-based dark matter profiles.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Gravitational lensing</strong> is reinterpreted as light propagation through
+                geometrically deformed regions sourced by vacuum energy structure.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Cosmic expansion</strong> and dark energy density become part of the same
+                geometric picture, rather than separate ingredients.
+              </span>
+            </li>
+          </ul>
+
+          <div class="pill-row">
+            <div class="pill">Dark matter without particles</div>
+            <div class="pill">Vacuum geometry</div>
+            <div class="pill">Curved space-time</div>
+            <div class="pill">Testable predictions</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-cols">
+        <div>
+          <h2 class="section-heading">About the Author</h2>
+          <p><strong>Sanjeev Kumar Singh</strong></p>
+          <p>
+            Independent researcher with a long professional background in aviation and systems operations,
+            exploring foundational questions in cosmology, gravitation and vacuum structure. This work
+            represents an attempt to build a compact, intuitive geometric alternative to particle-based
+            dark matter models.
+          </p>
+          <p>
+            Areas of interest include:
+          </p>
+          <ul class="key-points">
+            <li><span class="bullet"></span><span>Dark matter and dark energy modelling</span></li>
+            <li><span class="bullet"></span><span>Mass–energy–geometry relations</span></li>
+            <li><span class="bullet"></span><span>Emergent gravity and vacuum structure</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section-heading">How to cite this work</h2>
+          <p>You can cite the concept DOI, which always points to the latest version:</p>
+          <div class="math-block">
+            Singh, S. K. (2025). <br />
+            <em>Inverse Mass Law for Dark Matter: A Novel Geometric Alternative to Particle Candidates</em>. <br />
+            Zenodo. https://doi.org/10.5281/zenodo.17797752
+          </div>
+          <p>
+            For feedback, collaboration or questions, please reach out by email or connect through your
+            preferred academic platforms, referencing the DOI above.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        © 2025 · Inverse Mass Law for Dark Matter · <strong>Sanjeev Kumar Singh</strong>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:sunjeevsingh98@gmail.com">Email</a>
+        <a href="https://doi.org/10.5281/zenodo.17797752" target="_blank" rel="noopener noreferrer">Zenodo Record</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
